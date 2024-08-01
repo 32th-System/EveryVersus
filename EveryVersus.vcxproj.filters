@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\EveryVersus\identify.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EveryVersus\init.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libs\xxHash\xxhash.c">
+      <Filter>Libs\xxHash</Filter>
+    </ClCompile>
+    <ClCompile Include="src\libs\xxHash\xxh_x86dispatch.c">
+      <Filter>Libs\xxHash</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EveryVersus\breakpoint.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EveryVersus\Games\th_common.cpp">
+      <Filter>Source\Games</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EveryVersus\Games\th06.cpp">
+      <Filter>Source\Games</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EveryVersus\pipe.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\EveryVersus\EveryVersus.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{c8604890-7f04-4aa5-9286-79c70644ea39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{f76b2bde-10e2-4a03-b327-4416fa65cf1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs">
+      <UniqueIdentifier>{6b8695ca-a1c8-4a06-8ab9-64835f8264bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Libs\xxHash">
+      <UniqueIdentifier>{ebe456e5-1665-45f1-b7c2-9e772e14a1ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Games">
+      <UniqueIdentifier>{b0bed776-88b6-45b9-8c33-03cc557b3730}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EveryVersus\identify.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EveryVersus\commons.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EveryVersus\breakpoint.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EveryVersus\util.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EveryVersus\pipe.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EveryVersus\Games\th_common.h">
+      <Filter>Source\Games</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

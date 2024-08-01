@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8AAC31AA-C15C-4875-615A-7EF085D6C1A1}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <RootNamespace>EveryVersus</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <TargetName>EveryVersus</TargetName>
+    <IncludePath>$(SolutionDir)src\libs;$(SolutionDir)src\libs\rapidjson\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)\EveryVersus.props" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EveryVersus\breakpoint.cpp" />
+    <ClCompile Include="src\EveryVersus\Games\th06.cpp" />
+    <ClCompile Include="src\EveryVersus\Games\th_common.cpp" />
+    <ClCompile Include="src\EveryVersus\identify.cpp" />
+    <ClCompile Include="src\EveryVersus\init.cpp" />
+    <ClCompile Include="src\EveryVersus\pipe.cpp" />
+    <ClCompile Include="src\libs\xxHash\xxhash.c" />
+    <ClCompile Include="src\libs\xxHash\xxh_x86dispatch.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\EveryVersus\EveryVersus.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\EveryVersus\breakpoint.h" />
+    <ClInclude Include="src\EveryVersus\commons.h" />
+    <ClInclude Include="src\EveryVersus\Games\th_common.h" />
+    <ClInclude Include="src\EveryVersus\identify.h" />
+    <ClInclude Include="src\EveryVersus\pipe.h" />
+    <ClInclude Include="src\EveryVersus\util.h" />
+  </ItemGroup>
+</Project>

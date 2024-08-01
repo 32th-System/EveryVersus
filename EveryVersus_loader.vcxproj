@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{25A4F34B-4566-4A7B-B441-0F6BA17C51AC}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <RootNamespace>EveryVersus_loader</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ConfigurationType>Application</ConfigurationType>
+    <TargetName>EveryVersus_loader</TargetName>
+	<IncludePath>$(SolutionDir)src\libs;$(SolutionDir)src\libs\rapidjson\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <SubSystem>Console</SubSystem>
+	</Link>
+  </ItemDefinitionGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)\EveryVersus.props" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="src\loader\main.cpp" />
+  </ItemGroup>
+</Project>

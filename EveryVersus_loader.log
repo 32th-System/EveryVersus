@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.40.33807\include\chrono(2311,9): warning C4530: C++-Handler verwendet, aber Entladesemantik ist nicht aktiviert. Geben Sie /EHsc an.
+C:\Users\thc\Documents\git\DEEZNUTS\src\loader\main.cpp(60,7): warning C4189: "hasPrompted": Lokale Variable ist initialisiert aber nicht referenziert
+C:\Users\thc\Documents\git\DEEZNUTS\src\loader\main.cpp(98,9): warning C4101: "remoteMem": Unreferenzierte lokale Variable
+C:\Users\thc\Documents\git\DEEZNUTS\src\loader\main.cpp(94,8): warning C4189: "byteRet": Lokale Variable ist initialisiert aber nicht referenziert
+C:\Users\thc\Documents\git\DEEZNUTS\src\loader\main.cpp(100,8): warning C4189: "dllAddr": Lokale Variable ist initialisiert aber nicht referenziert
+  LINK : /LTCG wurde angegeben, es ist jedoch keine Codegenerierung erforderlich. Entfernen Sie /LTCG aus der Linkbefehlszeile, um die Linkerleistung zu erhöhen.
+  EveryVersus_loader.vcxproj -> C:\Users\thc\Documents\git\DEEZNUTS\Release\EveryVersus_loader.exe
