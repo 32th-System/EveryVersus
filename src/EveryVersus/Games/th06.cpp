@@ -222,13 +222,18 @@ static bool TH06BulletBulletTickEndHook(x86Reg* regs, void* param) {
 }
 
 static bool TH06BulletTypeHook(x86Reg* regs, void* param) {
-    BulletTemplateData* tempData = reinterpret_cast<BulletTemplateData*>(0x5a5ff8);
+    // at 414133 
 
-    for (uint16_t i = 0; i < 16; i++) {
-        tempData[i].type = i;
-    }
+    if(regs->eax)
+        return true;
+
+    Bullet* bullet = *reinterpret_cast<Bullet**>(regs->ebp - 0xC);
+    Shooter* shooter = *reinterpret_cast<Shooter**>(regs->ebp + 0x8);
+
+    bullet->tempData.type = shooter->sprite;
 
     return true;
+
 }
 
 static bool TH06AcquireBulletLock(x86Reg* regs, void* param) {
@@ -277,7 +282,7 @@ Breakpoint TH06Breakpoints[] = {
     {
         .func = TH06BulletTypeHook,
         .param = nullptr,
-        .addr = 0x413444,
+        .addr = 0x414133,
         .cavesize = 5,
     },
     // Remember to practice thread safety
