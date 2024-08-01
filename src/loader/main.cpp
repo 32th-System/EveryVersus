@@ -119,7 +119,7 @@ int wmain(int argc, wchar_t** argv) {
 	ResumeThread(pi.hThread);
 ending:
 
-#if 0
+#if 1
 	HANDLE hInputPipe = CreateFileW(L"\\\\.\\pipe\\EveryVersus_input", GENERIC_WRITE, 0, nullptr, OPEN_EXISTING, 0, nullptr);
 	HANDLE hOutputPipe = CreateFileW(L"\\\\.\\pipe\\EveryVersus_output", GENERIC_READ, 0, nullptr, OPEN_EXISTING, 0, nullptr);
 

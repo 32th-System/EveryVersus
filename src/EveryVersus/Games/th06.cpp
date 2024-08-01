@@ -218,7 +218,7 @@ static bool TH06BulletBulletTickEndHook(x86Reg* regs, void* param) {
         }
 
         DWORD byteRet;
-        if (!WriteFile(hOutputPipe, &ch, i * sizeof(BulletSend), &byteRet, nullptr) && pipeIsConnected) {
+        if (pipeIsConnected && !WriteFile(hOutputPipe, &ch, i * sizeof(BulletSend), &byteRet, nullptr)) {
             pipeIsConnected = false;
             CreateThread(nullptr, 0, PipeOutWaitConnectThread, nullptr, 0, nullptr);
         }
@@ -276,8 +276,8 @@ Breakpoint TH06Breakpoints[] = {
     {
         .func = TH06BulletCancelHook,
         .param = nullptr,
-        .addr = 0x415D8B,
-        .cavesize = 6,
+        .addr = 0x415BB6,
+        .cavesize = 9,
     },
     {
         .func = TH06BulletBulletTickEndHook,
