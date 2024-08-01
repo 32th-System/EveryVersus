@@ -199,7 +199,14 @@ static bool TH06BulletCancelHook(x86Reg* regs, void* param) {
     data_buf.emplace_back(reinterpret_cast<Bullet*>(regs->edx));
     return true;
 }
-                                           
+
+bool pipeIsConnected = false;
+DWORD WINAPI PipeOutWaitConnectThread(LPVOID lpParam) {
+    ConnectNamedPipe(hOutputPipe, nullptr);
+    pipeIsConnected = true;
+    return 0;
+}
+
 static bool TH06BulletBulletTickEndHook(x86Reg* regs, void* param) {    
     if (data_buf.size()) {
         BulletsChunk ch;
@@ -211,10 +218,9 @@ static bool TH06BulletBulletTickEndHook(x86Reg* regs, void* param) {
         }
 
         DWORD byteRet;
-    do_writefile:
-        if (!WriteFile(hOutputPipe, &ch, i * sizeof(BulletSend), &byteRet, nullptr)) {
-            ConnectNamedPipe(hOutputPipe, nullptr);
-            goto do_writefile;
+        if (!WriteFile(hOutputPipe, &ch, i * sizeof(BulletSend), &byteRet, nullptr) && pipeIsConnected) {
+            pipeIsConnected = false;
+            CreateThread(nullptr, 0, PipeOutWaitConnectThread, nullptr, 0, nullptr);
         }
     }
 
@@ -348,9 +354,10 @@ int TH06Init() {
         nullptr
     );
 
-   // ConnectNamedPipe(hOutputPipe, nullptr);
+    // ConnectNamedPipe(hOutputPipe, nullptr);
 
     CreateThread(nullptr, 0, PipeMsgThread, nullptr, 0, nullptr);
+    CreateThread(nullptr, 0, PipeOutWaitConnectThread, nullptr, 0, nullptr);
 
     DWORD oldProt;
     VirtualProtect((LPVOID)0x401000, 0x69000, PAGE_EXECUTE_READWRITE, &oldProt);
