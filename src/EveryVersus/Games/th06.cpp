@@ -220,6 +220,7 @@ static bool TH06BulletBulletTickEndHook(x86Reg* regs, void* param) {
         DWORD byteRet;
         if (pipeIsConnected && !WriteFile(hOutputPipe, &ch, i * sizeof(BulletSend), &byteRet, nullptr)) {
             pipeIsConnected = false;
+            DisconnectNamedPipe(hOutputPipe);
             CreateThread(nullptr, 0, PipeOutWaitConnectThread, nullptr, 0, nullptr);
         }
     }
@@ -312,6 +313,7 @@ DWORD WINAPI PipeMsgThread(LPVOID lpParam) {
     while(!(*reinterpret_cast<uint32_t*>(0x6C6BD8))) {
         DWORD byteRet;
         if (!ReadFile(hInputPipe, &ch, 2048, &byteRet, nullptr)) {
+            DisconnectNamedPipe(hInputPipe);
             ConnectNamedPipe(hInputPipe, nullptr);
             continue;
         }
